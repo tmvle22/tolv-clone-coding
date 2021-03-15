@@ -1,7 +1,297 @@
-@import url("https://fonts.googleapis.com/css2?family=B612+Mono&family=DM+Serif+Display:ital@0;1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;600;800&family=Titillium+Web:wght@600&display=swap");
 @import "_variables";
 @import "_elements";
 
 * {
   box-sizing: border-box;
+}
+
+body {
+  width: inherit;
+  height: auto;
+  cursor: pointer;
+}
+
+header {
+  position: fixed;
+  top: 0%;
+  display: flex;
+  width: 100%;
+  height: 50px;
+
+  .header-col {
+    width: 33%;
+    display: flex;
+
+    align-items: center;
+  }
+  .header-col_left {
+    justify-content: flex-start;
+    padding-left: 7%;
+    h2 {
+      margin-right: 30px;
+      font-size: 14px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    }
+  }
+  .header-col_center {
+    justify-content: center;
+    font-family: "Titillium Web", sans-serif;
+    font-weight: 600;
+    font-size: 30px;
+  }
+  .header-col_right {
+    justify-content: flex-end;
+    padding-right: 0;
+    img {
+      transform: scale(0.4);
+      padding-right: 20%;
+    }
+  }
+}
+
+main {
+  height: 500vh;
+
+  display: grid;
+  grid-template:
+    "first text" 1fr
+    "second text" 1fr
+    "third text" 1fr
+    "fourth text" 1fr
+    "fifth text" 1fr / 1fr 1fr;
+  .main-img {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center center;
+  }
+  .main-imge_1 {
+    background-image: url("https://tolv.dk/wp-content/uploads/2020/11/home_kitsune-2-1040x1300.jpg");
+    grid-area: first;
+  }
+  .main-imge_2 {
+    background-image: url("https://tolv.dk/wp-content/uploads/2020/11/home_portobelloW_arm-1040x1300.jpg");
+    grid-area: second;
+  }
+  .main-imge_3 {
+    background-image: url("https://tolv.dk/wp-content/uploads/2020/11/home_copal-1040x1300.jpg");
+    grid-area: third;
+  }
+  .main-imge_4 {
+    background-image: url("https://tolv.dk/wp-content/uploads/2020/11/home_figura_2-1040x1300.jpg");
+    grid-area: fourth;
+  }
+  .main-imge_5 {
+    background-image: url("https://tolv.dk/wp-content/uploads/2020/11/home_neuf_daybed-1040x1300.jpg");
+    grid-area: fifth;
+  }
+  .main-text-section {
+    font-family: "Shippori Mincho B1", serif;
+    grid-area: text;
+    padding: 0 11%;
+    .main-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100vh;
+
+      p {
+        text-align: center;
+        font-size: 40px;
+        font-weight: 800;
+        line-height: 1.3em;
+        letter-spacing: -1px;
+      }
+      span {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+        font-size: 11px;
+        margin-top: 5vh;
+        a {
+          color: #fe682b;
+          font-weight: 400;
+        }
+        .main-sub_bold {
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}
+
+.middle {
+  height: 75vh;
+  width: 100%;
+  background-color: #efcb56;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Shippori Mincho B1", serif;
+  padding: 20vh 20% 15vh 20%;
+  h2 {
+    font-size: 40px;
+    font-weight: 800;
+  }
+  p {
+    text-align: center;
+    font-size: 25px;
+    font-weight: 500;
+    line-height: 2rem;
+    letter-spacing: -1px;
+  }
+  span {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    font-size: 11px;
+
+    a {
+      color: #fe682b;
+      font-weight: 700;
+    }
+  }
+}
+
+.gallery {
+  height: 200vh;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(160px, 1fr));
+  grid-template-rows: repeat(4, minmax(160px, 1fr));
+  gap: 2px;
+  grid-template-areas:
+    "a a b c"
+    "d e e f"
+    "g g h i"
+    "j j k l";
+  .gallery-lg {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center center;
+  }
+  .gallery-sm {
+    height: 100%;
+    width: 100%;
+
+    background-size: cover;
+    background-position: center center;
+  }
+  .gallery_img {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    &:hover {
+      filter: blur(20px);
+      transition: filter 0.1s linear;
+    }
+    .item-title {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      opacity: 1;
+      .item-title_bold {
+        font-weight: 600;
+        margin-bottom: 5px;
+      }
+    }
+    .arrow {
+      position: relative;
+      display: block;
+      transform: scale(0.3);
+      height: auto;
+      max-width: 80px;
+      margin-top: 0;
+    }
+  }
+
+  .img-1 {
+    background-image: url("https://tolv.dk/wp-content/uploads/2019/07/Cherry-Sofa-Lookbook-12-web@2x.jpg");
+    grid-area: a;
+  }
+  .img-2 {
+    background-image: url("https://tolv.dk/wp-content/uploads/2019/07/Figura-chair-walnut_2-closeup@2x-974x1300.jpg");
+    grid-area: b;
+  }
+  .img-3 {
+    background-image: url("https://tolv.dk/wp-content/uploads/2019/07/home-slide-03@2x-1040x1300.jpg");
+    grid-area: c;
+  }
+  .img-4 {
+    background-image: url("https://tolv.dk/wp-content/uploads/2019/07/Bourbon_4-web@2x-1127x1300.jpg");
+    grid-area: d;
+  }
+  .img-5 {
+    background-image: url("https://tolv.dk/wp-content/uploads/2019/07/Natadora_Copal-2_Q461_2-web@2x.jpg");
+    grid-area: e;
+  }
+  .img-6 {
+    background-image: url("https://tolv.dk/wp-content/uploads/2019/07/Kitsune-1_envy_2-web@2x.jpg");
+    grid-area: f;
+  }
+  .img-7 {
+    background-image: url("https://tolv.dk/wp-content/uploads/2019/07/Kile-Coffeetable-Lookbook-75-web@2x-1.jpg");
+    grid-area: g;
+  }
+  .img-8 {
+    background-image: url("https://tolv.dk/wp-content/uploads/2019/07/Kile-Coffeetable-Details-12-web@2x-1128x1300.jpg");
+    grid-area: h;
+  }
+  .img-9 {
+    background-image: url("https://tolv.dk/wp-content/uploads/2019/07/Com-Chair-Lookbook-67-web@2x.jpg");
+    grid-area: i;
+  }
+  .img-10 {
+    background-image: url("https://tolv.dk/wp-content/uploads/2019/07/Portobello-W-sofa-HempRoot_1-web@2x.jpg");
+    grid-area: j;
+  }
+  .img-11 {
+    background-image: url("https://tolv.dk/wp-content/uploads/2019/07/Papa-Cushion-25-web@2x-1-1127x1300.jpg");
+    grid-area: k;
+  }
+  .img-12 {
+    background-image: url("https://tolv.dk/wp-content/uploads/2019/07/Neuf-CT-S-marble-closeup-web@2x-1140x1300.jpg");
+    grid-area: l;
+  }
+}
+
+footer {
+  display: flex;
+  padding: 5% 15% 5% 15%;
+  background-color: #535851;
+  width: inherit;
+  height: 100vh;
+  justify-content: space-between;
+  .footer-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 20%;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    h3 {
+      color: rgba(255, 255, 255, 0.4);
+      margin-bottom: 10px;
+    }
+    span {
+      color: rgba(255, 255, 255, 0.856);
+      margin-bottom: 10px;
+    }
+    .footer-col_last_up {
+      display: flex;
+      flex-direction: column;
+    }
+    .footer-col_last_down {
+      h3 {
+        margin-top: 20px;
+      }
+    }
+  }
 }
